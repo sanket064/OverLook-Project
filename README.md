@@ -28,6 +28,6 @@ This is a repository for OverLook Project
  ### 3 - Everyday atleast give your one hour into this project.
  ### 4 - No Late submissions will be accepted.
 
-Lets Rock This OverLook Assignment Website /
+Lets Rock This OverLook Assignment Project /
 
 
