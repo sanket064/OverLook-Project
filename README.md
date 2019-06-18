@@ -6,7 +6,7 @@ This is a repository for OverLook Project
 
 ## Agile Scrum Team
 
-**Product Owner**
+**Instructor**
 
   Nathan Leggatt
 
