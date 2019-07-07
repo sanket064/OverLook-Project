@@ -1,0 +1,44 @@
+// Brand colors for overlook
+$color-1: #181818;
+$color-2: #353332;
+$color-3: #303631;
+$color-4: #6bc6ac;
+$color-5: #38211c;
+$color-6: #dc5453;
+// style for overlook
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap');
+//font-family: 'Montserrat', sans-serif;
+
+
+
+
+
+
+// Media Queries
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+      @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+      @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+      @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+      @content;
+  }
+}
