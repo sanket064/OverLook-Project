@@ -5,40 +5,206 @@ $color-3: #303631;
 $color-4: #6bc6ac;
 $color-5: #38211c;
 $color-6: #dc5453;
+$color-7: #d2d2d4;
 // style for overlook
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap');
 //font-family: 'Montserrat', sans-serif;
-
-
-
-
-
-
-// Media Queries
-// Small devices
-@mixin sm {
-  @media (min-width: #{$screen-sm-min}) {
-      @content;
+body{
+  box-sizing: border-box;
+  overflow: auto;
+}
+a{
+  text-decoration: none;
+  list-style:none;
+}
+a:hover{
+  text-decoration: none;
+}
+// home for Mobile - (start)
+.background-color{
+  background-color: #181818;
+  height: 150px;
+}
+.background-color:nth-child(2){
+  background-color:#303631;
+  height: 180px;
+}
+.background-color:nth-child(3){
+  background-color: #38211c;
+  height: 250px;
+  border-top: 10px solid #181818;
+  border-bottom: 10px solid #181818;
+}
+.background-color:nth-child(4){
+  background-color: #303631;
+  height: 250px;
+  border-bottom: 10px solid #181818;
+}
+.background-color:nth-child(5){
+  background-color: #353332;
+  height: 350px;
+  border-bottom: 2px solid #181818;
+  text-align: center;
+}
+.background-color:nth-child(6){
+  background-color: #353332;
+  height: 350px;
+  border-top: 10px solid #181818;
+  text-align: center;
+}
+// For the box 1
+.h1-size-1{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400; 
+  font-size: 22px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+  margin-top: 50px;
   }
+  // For the box 2
+.h1-size-2{
+  color: #d2d2d2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 80px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+  margin-top: 10px;
+}
+.h2-size-1{
+  color: #d2d2d2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+}
+// For the box 3
+.h1-size-3{
+  color: #dc5453;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 80px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+  margin-top: 10px;
+}
+.h2-size-2{
+  color: #dc5453;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+}
+// For the box 4
+.h1-size-4{
+  color: #6bc6ac;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 80px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+  margin-top: 10px;
+}
+.h3-size-3{
+  color: #6bc6ac;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 40px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+}
+// For the box 5
+.img-size{
+  height: 200px;
+  margin-top: 30px;
+}
+.h1-size-5{
+  color: #d2d2d2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:400; 
+  font-size: 46px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  align-content: center;
+  margin-top: 25px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+// home for Mobile - (End)
+// fail for Mobile - (start)
+.fail-background-color{
+  background-color: #353332;
+  height: 125px;
+  text-align: center;
+}
+.fail-background-color:nth-child(2){
+  background-color: #38211c;
+  height: 800px;
+  text-align: center;
+}
+.fail-h1{
+  color: #d2d2d2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 46px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  margin-top: 35px;
+}
+.fail-h2{
+  color: #dc5453;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 35px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  margin-top: 35px;
+}
+.fail-h3{
+  color: #dc5453;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:900; 
+  font-size: 90px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0px;
+  margin-top: 5px;
 }
 
-// Medium devices
-@mixin md {
-  @media (min-width: #{$screen-md-min}) {
-      @content;
-  }
-}
 
-// Large devices
-@mixin lg {
-  @media (min-width: #{$screen-lg-min}) {
-      @content;
-  }
-}
 
-// Extra large devices
-@mixin xl {
-  @media (min-width: #{$screen-xl-min}) {
-      @content;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
