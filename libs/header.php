@@ -14,7 +14,7 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<a class="navbar-brand" href="#"> <img class="logo" src="imgs/logo-symbols.png" alt="logo"></a>
+	<a class="navbar-brand" href="home.php"> <img class="logo" src="imgs/logo-symbols.png" alt="logo"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar1" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

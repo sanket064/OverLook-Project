@@ -4,17 +4,18 @@
 @import "base/reset";
 @import "base/header";
 @import "base/footer";
+@import "base/login";
 
 body{
-    background-color: black;
+    background-color: rgb(20, 20, 20);
 }
 //  Start Of Pending Page
 .pending_header {
-    padding-top: 3%;
+    padding: 15% 0% 15% 0%;
     text-align: center;
     font-weight: bolder;
-    color: $pink;
-    font-family: $body;
+    color: #dc5453;
+    font-family: "Montserrat", sans-serif;
     font-size: 35px;
 }
 
@@ -59,9 +60,10 @@ body{
 
 #pending_section{
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-color: $dark-red;
     margin-top: 3%;
+    padding-bottom: 3%;
 }
 
 .course_description {
@@ -71,5 +73,6 @@ body{
     font-weight: 300;
     line-height: 22px;
     margin-top: 25px;
+    margin-left: 5px;
     font-family: $body;
 }

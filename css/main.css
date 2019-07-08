@@ -654,10 +654,10 @@ textarea {
   padding: 0.2em 0; }
 
 .bg-dark {
-  background-color: #141414 !important; }
+  background-color: #000000 !important; }
 
 .logo {
-  width: 150px; }
+  height: 100px; }
 
 .nav-link {
   font-size: 1.5rem;
@@ -705,11 +705,115 @@ textarea {
     border-left: transparent;
     padding-bottom: 0px;
     margin-bottom: 10px; } }
+.form-wrapper {
+  width: 90%;
+  height: 370px;
+  margin: 0 auto;
+  margin-top: 15%;
+  background: #38211c;
+  padding: 15px 25px;
+  border: 5px solid #6bc6ac;
+  border-radius: 5px;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.6), inset 0px 1px 0px rgba(255, 255, 255, 0.04); }
+
+.form-item {
+  width: 100%; }
+
+h3 {
+  font-size: 25px;
+  font-weight: 640;
+  margin-bottom: 10px;
+  color: #e7e7e7;
+  padding: 6px;
+  font-family: "Montserrat", sans-serif; }
+
+.form-item input {
+  background: transparent;
+  color: #fff;
+  margin-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2em;
+  height: 49px;
+  padding: 0 16px;
+  width: 100%;
+  padding-left: 55px;
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  border-radius: 20px; }
+
+input[type="password"] {
+  background: transparent url("../imgs/pass.jpg") no-repeat;
+  background-position: 10px 50%; }
+
+input[type="email"] {
+  background: transparent url("../imgs/user.jpg") no-repeat;
+  background-position: 10px 50%; }
+
+.form-item input:focus {
+  outline: none;
+  border: 1.4px solid #cfecf0; }
+
+.button-panel {
+  margin-bottom: 20px;
+  padding-top: 10px;
+  width: 100%; }
+
+.button-panel .button {
+  background: #dc5453;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: "helvetica", "Open Sans", sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+  margin-top: 5px; }
+
+.button:hover {
+  background: #6bc6ac; }
+
+.form-item input,
+.button-panel .button {
+  border-radius: 2px; }
+
+.reminder {
+  text-align: center; }
+
+.reminder a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s; }
+
+.reminder a:hover {
+  color: #cab6bf; }
+
+.form_login {
+  text-align: center;
+  font-size: 33px;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  margin-top: 10px; }
+
+.error {
+  color: white;
+  position: absolute;
+  top: 3%;
+  text-transform: uppercase;
+  font-size: 35px;
+  padding: 20px;
+  background-color: #dc5453;
+  margin-left: 3%;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif; }
+
 body {
-  background-color: black; }
+  background-color: #141414; }
 
 .pending_header {
-  padding-top: 3%;
+  padding: 15% 0% 15% 0%;
   text-align: center;
   font-weight: bolder;
   color: #dc5453;
@@ -753,9 +857,10 @@ body {
 
 #pending_section {
   width: 100%;
-  height: 100vh;
+  height: auto;
   background-color: #38211c;
-  margin-top: 3%; }
+  margin-top: 3%;
+  padding-bottom: 3%; }
 
 .course_description {
   color: white;
@@ -764,6 +869,7 @@ body {
   font-weight: 300;
   line-height: 22px;
   margin-top: 25px;
+  margin-left: 5px;
   font-family: "Montserrat", sans-serif; }
 
 /*# sourceMappingURL=main.css.map */
