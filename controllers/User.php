@@ -20,27 +20,36 @@ Class User extends Controller {
     public static function register() {
 
         if(isset($_POST['submit'])){
-            $username = $_POST['username'];
+            $user_name = $_POST['user_name'];
             $email = $_POST['email'];
+            $first_name = $_POST['first_name'];
+            $last_name = $_POST['last_name'];
+            $user_role = $_POST['user_role'];
             $password = $_POST['password'];
-            if(!empty($username) && !empty($email) && !empty($password)){
+
+           
+            if(!empty($user_name) && !empty($email) && !empty($password) && !empty($first_name) && !empty($last_name) && !empty($user_role)){
         
-                $username = mysqli_real_escape_string(ConnectToDb::con(), $username);
+                $user_name = mysqli_real_escape_string(ConnectToDb::con(), $user_name);
                 $email = mysqli_real_escape_string(ConnectToDb::con(), $email);
+                $first_name = mysqli_real_escape_string(ConnectToDb::con(), $first_name);
+                $last_name = mysqli_real_escape_string(ConnectToDb::con(), $last_name);
+                $user_role = mysqli_real_escape_string(ConnectToDb::con(), $user_role);
                 $password = mysqli_real_escape_string(ConnectToDb::con(), $password);
+
             
-                $query = "SELECT randSalt FROM users";
+                $query = "SELECT rand_salt FROM users";
                 $select_randsalt_query = mysqli_query(ConnectToDb::con(), $query);
                 if(!$select_randsalt_query) {
                     die("QUERY FAILED" . mysqli_error(ConnectToDb::con()));
                 }
             
                 $row = mysqli_fetch_array($select_randsalt_query);
-                $salt = $row['randSalt'];
+                $salt = $row['rand_salt'];
                 $password = crypt($password, $salt);
             
-                $query = "INSERT INTO users (username, user_email, user_password, user_role) ";
-                $query .= "VALUES('{$username}', '{$email}', '{$password}', 'Subscriber' )";
+                $query = "INSERT INTO users (user_name, user_password, user_first_name, user_last_name, user_email, user_role) ";
+                $query .= "VALUES('{$user_name}',  '{$password}', '{$first_name}', '{$last_name}', '{$email}', '{$user_role}' )";
                 $register_user_query = mysqli_query(ConnectToDb::con(), $query);
                 if(!$register_user_query) {
                     die("QUERY FAILED" . mysqli_error(ConnectToDb::con()));
@@ -53,7 +62,7 @@ Class User extends Controller {
     <h4>Login</h4>
     <form action="index.php?controller=user&action=login" method="post">
         <div class="form-group">
-            <input placeholder="Enter Username" name="username" type="text" class="form-control">
+            <input placeholder="Enter Username" name="user_name" type="text" class="form-control">
 
         </div>
         <!-- /.input-group -->
@@ -84,13 +93,13 @@ Class User extends Controller {
         
 
     if(isset($_POST['login'])){
-    $username = $_POST['username'];
+    $user_name = $_POST['user_name'];
     $password = $_POST['password'];
 
-    $username = mysqli_real_escape_string(ConnectToDb::con(), $username);
+    $user_name = mysqli_real_escape_string(ConnectToDb::con(), $user_name);
     $password = mysqli_real_escape_string(ConnectToDb::con(), $password);
 
-    $query = "SELECT * FROM users WHERE username = '{$username}' ";
+    $query = "SELECT * FROM users WHERE user_name = '{$user_name}' ";
     $select_user_query = mysqli_query(ConnectToDb::con(), $query);
     if(!$select_user_query) {
         die("QUERY FAILED" . mysqli_error(ConnectToDb::con()));
@@ -98,7 +107,7 @@ Class User extends Controller {
     while($row = mysqli_fetch_array($select_user_query)) {
 
         $db_id = $row['user_id'];
-        $db_username = $row['username'];
+        $db_username = $row['user_name'];
         $db_email = $row['user_email'];
         $db_user_password = $row['user_password'];
         $db_user_firstname = $row['user_firstname'];
@@ -108,7 +117,7 @@ Class User extends Controller {
     }
 
     $password = crypt($password, $db_user_password);
-        if($username === $db_username && $password === $db_user_password) {
+        if($user_name === $db_username && $password === $db_user_password) {
             $_SESSION['user_name'] = $db_username;
             $_SESSION['first_name'] = $db_user_firstname;
             $_SESSION['last_name'] = $db_user_lastname;

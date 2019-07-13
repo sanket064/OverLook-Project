@@ -17,7 +17,7 @@ Class Pages extends Controller {
 		// $this->arrFeatured = Products::getFeatured();
 		// $this->mainbody .= $this->loadView("productgrid");
 		$this->mainbody .= $this->loadView("userLogin");	
-		
+		// $this->mainbody .= $this->loadView("userRegistration");
 		include("views/template.php");
 	}
 
