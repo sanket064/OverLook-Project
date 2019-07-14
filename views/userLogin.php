@@ -4,7 +4,7 @@
     <div class=" main_login">
         <form action="index.php?controller=user&action=login" method="post" >
             <div class="form-group ">
-                <input placeholder="Enter Username" name="username" type="text" class="form-control">
+                <input placeholder="Enter Username" name="user_name" type="text" class="form-control">
 
             </div>
             <!-- /.input-group -->

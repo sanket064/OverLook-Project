@@ -93,11 +93,12 @@ Class User extends Controller {
         
 
     if(isset($_POST['login'])){
-    $user_name = $_POST['user_name'];
-    $password = $_POST['password'];
+       
+        $user_name = $_POST['user_name'];
+        $password = $_POST['password'];
 
-    $user_name = mysqli_real_escape_string(ConnectToDb::con(), $user_name);
-    $password = mysqli_real_escape_string(ConnectToDb::con(), $password);
+        $user_name = mysqli_real_escape_string(ConnectToDb::con(), $user_name);
+        $password = mysqli_real_escape_string(ConnectToDb::con(), $password);
 
     $query = "SELECT * FROM users WHERE user_name = '{$user_name}' ";
     $select_user_query = mysqli_query(ConnectToDb::con(), $query);

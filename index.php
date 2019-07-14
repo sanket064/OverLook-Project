@@ -5,6 +5,7 @@ session_start();
 include("../../overlookDB/ConnectToDB.php");
 include("controllers/Controller.php");
 include("models/Model.php");
+include("models/Assignments.php");
 include("controllers/Pages.php");
 include("controllers/User.php");
 

@@ -20,6 +20,10 @@ Class Pages extends Controller {
 	{
 		$this->nav = $this->loadView("mainnav");
 		$this->mainbody .= $this->loadView("hero_dashboard");
+		$this->arrAssignments = Assignments::getAll();
+		$this->arrAverageGrade = Assignments::averageGrade();
+		$this->mainbody .= $this->loadView("average_grade");
+		$this->mainbody .= $this->loadView("assignment_list");
 		include("views/template.php");
 	}
 
