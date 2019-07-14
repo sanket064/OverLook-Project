@@ -29,6 +29,11 @@ Class Assignments extends Model {
 
         
     }
+
+    public static function pendingAssignments() {
+        // Write the SQL
+        
+    }
 } 
 
 
