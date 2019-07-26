@@ -2,15 +2,13 @@
     <h2 class="my-5 pl-3">Assignments</h2>
     <div class="row">
         <?php 
-        // $total_marks = ($this->arrAverageGrade);
-        // print_r("total marks are: " . $total_marks);
 		foreach($this->arrAssignments as $assignment)
 		{
-            print_r($assignment);
+            // print_r($assignment);
             ?>
-
         <div class="col">
-          <h1>Student Name: <?php echo $assignment['user_first_name'];  ?></h1>
+            <h1>Assignment Name: <?= $assignment['assignment_name'];  ?> </h1>
+          <h1>Student Name: <?php echo $assignment['user_first_name'].' '.$assignment['user_last_name'];  ?></h1>
 
            <?php 
            // IF STUDENT HAS SUBMITTED ASSIGNMENT, SHOW WHEN
@@ -26,7 +24,7 @@
                 <?php
                }  ?>
 
-          <h1>Marks: <?php echo $assignment['student_assignment_marks'];  ?></h1>
+          <!-- <h1>Marks: <?php echo $assignment['student_assignment_marks'];  ?></h1> -->
               
         </div>
         <?php
