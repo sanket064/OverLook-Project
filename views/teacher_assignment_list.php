@@ -15,7 +15,8 @@
            if($assignment['student_assignment_date_submitted'])
            {
             ?>
-            <h1>Submitted on <?= $assignment['student_assignment_date_submitted']; ?> </h1>
+            <h1 class="alert-success">Submitted on <?= $assignment['student_assignment_date_submitted']; ?> </h1>
+            <h1 class="alert-success">Marks: <?php echo $assignment['student_assignment_marks'];  ?></h1>
             <?php } 
             // IF STUDENT HAS NOT SUBMITTED, SHOW ALERT
             else if($assignment['student_assignment_date_submitted'] == NULL)  {
@@ -24,7 +25,6 @@
                 <?php
                }  ?>
 
-          <!-- <h1>Marks: <?php echo $assignment['student_assignment_marks'];  ?></h1> -->
               
         </div>
         <?php
