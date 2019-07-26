@@ -14,6 +14,7 @@
             <h1 class="my-3">Assignment Name: <?=$assignment['assignment_name']?></h1>
             <h1 class="my-3">Credits: <?=$assignment['assignment_credits']?></h1>
             <h1 class="my-3">Teacher Name: <?=$assignment['assignment_teacher_name']?></h1>
+            <h1 class="my-3">Details: <?=$assignment['assignment_description']?></h1>
             <?php 
             if (empty($assignment['assignment_date_submitted'])) {
                 // if assignment has not been submitted by a student, then show the date it is due & the description

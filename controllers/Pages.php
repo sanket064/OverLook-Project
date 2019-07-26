@@ -20,10 +20,21 @@ Class Pages extends Controller {
 	{
 		$this->nav = $this->loadView("mainnav");
 		$this->mainbody .= $this->loadView("hero_dashboard");
-		$this->arrAssignments = Assignments::getAll();
-		$this->arrAverageGrade = Assignments::averageGrade();
-		$this->mainbody .= $this->loadView("average_grade");
-		$this->mainbody .= $this->loadView("assignment_list");
+		if ($_SESSION['user_role'] != 'Teacher'){
+			// Create link to submit assignment
+			$this->arrAssignments = Assignments::getAllStudentAssignments();
+			$this->arrAverageGrade = Assignments::averageGrade();
+			$this->mainbody .= $this->loadView("average_grade");
+			$this->mainbody .= $this->loadView("assignment_list");
+		} else {
+			// Create assignment
+			// Edit Assignment 
+			// Delete Assignment
+			// View all Assignments (based on teacher_class/course)
+			$this->arrAssignments = Assignments::getAllTeacherAssignments();
+			$this->mainbody .= $this->loadView("teacher_assignment_list");
+
+		}
 		include("views/template.php");
 	}
 

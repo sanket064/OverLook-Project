@@ -1,23 +1,22 @@
 <?php
 Class Assignments extends Model {
 
-   
-	public static function getAll()
+   // ALL STUDENT RELATED MODELS BELOW THIS LINE -------------------------------------------------------------------------------------
+	public static function getAllStudentAssignments()
 	{
-		
-		$results = mysqli_query(ConnectToDb::con(), "SELECT * FROM assignments");
+		$sql = "SELECT * FROM assignments 
+		LEFT JOIN student_assignment 
+		ON assignments.assignment_id = student_assignment.student_assignment_assignment_id
+		WHERE student_assignment.student_assignment_student_id =".$_SESSION['user_id'];
+
+		$results = mysqli_query(ConnectToDb::con(), $sql);
 
 		while($record = mysqli_fetch_assoc($results))
 		{
-			// create a product object here...
 			$arrAssignments[] = $record;
 			//print_r($record);
 		}
-		// randomize our array of products
-		
 		return $arrAssignments;
-
-
     }
     
     public static function averageGrade() {
@@ -26,12 +25,30 @@ Class Assignments extends Model {
 		$arrAverageGrade = mysqli_fetch_assoc($results);
 		// print_r($arrAverageGrade);
 		return $arrAverageGrade;
-
-        
     }
+	
+	// ALL TEACHER RELATED MODELS BELOW THIS LINE -------------------------------------------------------------------------------------
 
-    public static function pendingAssignments() {
-        // Write the SQL
+    public static function getAllTeacherAssignments() {
+	// Getting all assignments for a specific teacher
+	$teacher_name = $_SESSION['first_name'];
+	// $sql = "SELECT *
+	// FROM assignments 
+	// LEFT JOIN teacher_assignment 
+	// ON assignments.assignment_id = teacher_assignment.teacher_assignment_assignment_id
+	// WHERE assignments.assignment_teacher_name = '$teacher_name'";
+	$sql = "SELECT * FROM users 
+	LEFT JOIN student_assignment 
+	ON users.user_id = student_assignment.student_assignment_student_id
+	WHERE student_assignment.student_assignment_teacher = '$teacher_name'";
+	$results = mysqli_query(ConnectToDb::con(), $sql);
+
+	while($record = mysqli_fetch_assoc($results))
+	{
+		$arrAssignments[] = $record;
+		//print_r($record);
+	}
+	return $arrAssignments;
         
     }
 } 
