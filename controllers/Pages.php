@@ -7,7 +7,7 @@ Class Pages extends Controller {
 
 	public function main()
 	{
-		$this->nav = $this->loadView("mainnav");
+		$this->nav = $this->loadView("header");
 		$this->mainbody .= $this->loadView("hero");
 
 		$this->mainbody .= $this->loadView("userLogin");	
@@ -18,18 +18,33 @@ Class Pages extends Controller {
 
 	public function dashboard()
 	{
-		$this->nav = $this->loadView("mainnav");
+		$this->nav = $this->loadView("header");
 		$this->mainbody .= $this->loadView("hero_dashboard");
-		$this->arrAssignments = Assignments::getAll();
-		$this->arrAverageGrade = Assignments::averageGrade();
-		$this->mainbody .= $this->loadView("average_grade");
-		$this->mainbody .= $this->loadView("assignment_list");
+		if ($_SESSION['user_role'] != 'Teacher'){
+			// Create link to submit assignment
+			$this->arrAssignments = Assignments::getAllStudentAssignments();
+			$this->mainbody .= $this->loadView("assignment_list");
+		} else {
+			// Create assignment
+			// Edit Assignment 
+			// Delete Assignment
+			// View all Assignments (based on teacher_class/course)
+			$this->arrAssignments = Assignments::getAllTeacherAssignments();
+			$this->mainbody .= $this->loadView("teacher_assignment_list");
+
+		}
 		include("views/template.php");
 	}
 
+	public function assignment(){
+		$this->nav = $this->loadView("header");
+		$this->mainbody .= $this->loadView("home");
+
+		include("views/template.php");
+	}
 	public function registerUser() {
 		
-		$this->nav = $this->loadView("mainnav");
+		$this->nav = $this->loadView("header");
 		$this->mainbody .= $this->loadView("register");	
 		include("views/template.php");
 	}
