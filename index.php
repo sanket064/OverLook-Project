@@ -2,6 +2,7 @@
 // start session here because we can't start a session after outputting
 session_start();
 
+
 include("../../overlookDB/ConnectToDB.php");
 include("controllers/Controller.php");
 include("models/Model.php");

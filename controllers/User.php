@@ -111,8 +111,8 @@ Class User extends Controller {
         $db_username = $row['user_name'];
         $db_email = $row['user_email'];
         $db_user_password = $row['user_password'];
-        $db_user_firstname = $row['user_firstname'];
-        $db_user_lastname = $row['user_lastname'];
+        $db_user_firstname = $row['user_first_name'];
+        $db_user_lastname = $row['user_last_name'];
         $db_user_role = $row['user_role'];
 
     }
@@ -124,6 +124,7 @@ Class User extends Controller {
             $_SESSION['last_name'] = $db_user_lastname;
             $_SESSION['user_role'] = $db_user_role;
             $_SESSION['user_email'] = $db_email;
+            $_SESSION['user_id'] = $db_id;
             header("Location: index.php?controller=pages&action=dashboard");
         }  else {
             header("Location: ../index.php");
