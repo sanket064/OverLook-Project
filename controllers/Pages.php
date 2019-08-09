@@ -27,16 +27,29 @@ Class Pages extends Controller {
 			$this->mainbody .= $this->loadView("average_grade");
 			$this->mainbody .= $this->loadView("assignment_list");
 		} else {
-			// Create assignment
-			// Edit Assignment 
-			// Delete Assignment
 			// View all Assignments (based on teacher_class/course)
+			$this->arrTeacherNumberOfAssignments = Assignments::getNumberOfTeacherAssignments();
+			$this->mainbody .= $this->loadView("teacher_header");
 			$this->arrAssignments = Assignments::getAllTeacherAssignments();
 			$this->mainbody .= $this->loadView("teacher_assignment_list");
-
 		}
 		include("views/template.php");
 	}
+
+	public function createAssignment() {
+		$this->nav = $this->loadView("mainnav");
+		
+		$this->getAllTeacherCourses = Assignments::getAllTeacherCourses();
+		$this->mainbody .= $this->loadView("teacher_create_assignment");
+		include("views/template.php");
+	}
+	public function viewAllTeacherAssignments() {
+		$this->nav = $this->loadView("mainnav");
+		$this->getAllTeacherAssignments = Assignments::viewAllTeacherAssignments();
+		$this->mainbody .= $this->loadView("teacher_view_assignment");
+		include("views/template.php");
+	}
+
 
 	public function registerUser() {
 		
