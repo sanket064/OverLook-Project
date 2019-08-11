@@ -1,0 +1,58 @@
+// # 1 Getting the all assignments due from a specific class
+
+SELECT assignment_name
+FROM assignments
+LEFT JOIN class_assignments
+ON assignments.assignment_name = class_assignments.ca_assignment_id
+
+// RESULT = list of assignment names
+-------------------------------------------------------------------------------------
+// #2 Find out all submitted/non submitted assignments from a specific class
+
+SELECT assignment_date_submitted 
+FROM assignments 
+LEFT JOIN class_assignments 
+ON assignments.assignment_date_submitted = class_assignments.ca_assignment_id
+
+// RESULT = list of dates (if assignment is not submitted it will be NULL)
+-------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+// #3 Get all marks on the selected assignment from a specific class
+
+SELECT assignment_marks
+FROM assignments 
+LEFT JOIN class_assignments 
+ON assignments.assignment_marks = class_assignments.ca_assignment_id
+
+// RESULT = List of all marks (if it is NULL assignment has not been marked by teacher, OR student has not submitted)
+-------------------------------------------------------------------------------------
+// #4 Get a list of all students, emails, names/usernames & bios
+
+SELECT user_name, user_first_name, user_last_name, user_email, user_role 
+FROM users 
+LEFT JOIN student_user 
+ON users.user_id = student_user.student_user_student_id
+
+SELECT student_bio // Column from students table
+FROM students // Table that i want to get data from
+LEFT JOIN student_user ON students.student_id = student_user.student_user_student_id // 
+
+// RESULT = 2 tables with user details & student bios
+-------------------------------------------------------------------------------------
+
+
+
+SELECT * FROM assignments 
+LEFT JOIN student_assignment 
+ON assignments.assignment_id = student_assignment.student_assignment_student_id
+
+
+
+
+
+// get all students assignments for a specific teacher
+SELECT * FROM users 
+LEFT JOIN student_assignment 
+ON users.user_id = student_assignment.student_assignment_student_id
+WHERE student_assignment.student_assignment_teacher = 'Nathan'

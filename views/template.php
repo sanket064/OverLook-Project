@@ -10,6 +10,7 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&display=swap" rel="stylesheet">
     <link href="template/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/424978c7c4.js"></script>
     <link rel="stylesheet" href="template/css/main.css">
     <!-- <style>
     #heroImage {}
