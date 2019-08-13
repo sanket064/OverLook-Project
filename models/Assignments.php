@@ -114,16 +114,15 @@ Class Assignments extends Model {
 		return $arrStudents;
 	}
 	public static function countSubmittedAssignments() {
-		$user_id = $_SESSION['user_id'];
-	// SUBMITTED STUDENT ASSIGNMENT COUNT --------------------------------------
+	$user_id = $_SESSION['user_id'];
 	$number_of_submitted_students = "SELECT COUNT(1) FROM `student_assignment` WHERE  student_assignment_date_submitted IS NOT NULL AND student_assignment_student_id = $user_id";
 	$submitted_student_assignment_count = mysqli_query(ConnectToDb::con(), $number_of_submitted_students);
 	$assignment_submitted_count = mysqli_fetch_assoc($submitted_student_assignment_count);
 	return $assignment_submitted_count;
 	}
 	public static function countPendingAssignments() {
-		$user_id = $_SESSION['user_id'];
-	// NOT SUBMITTED STUDENT ASSIGNMENT COUNT --------------------------------------
+	$user_id = $_SESSION['user_id'];
+
 	$number_of_not_submitted_students = "SELECT COUNT(1) FROM `student_assignment` WHERE student_assignment_date_submitted IS NULL AND student_assignment_student_id = $user_id";
 	$not_submitted_student_assignment_count = mysqli_query(ConnectToDb::con(), $number_of_not_submitted_students);
 	$assignment_not_submitted_count = mysqli_fetch_assoc($not_submitted_student_assignment_count);
@@ -245,24 +244,10 @@ Class Assignments extends Model {
 		while($record = mysqli_fetch_assoc($results))
 		{
 			$allTeacherAssignments[] = $record;
-			// print_r($record);
-		}
-		return $allTeacherAssignments;
-		// $sql_get_class_id = "SELECT * FROM classes WHERE classes_name = '$assignment_course'";
-		// $assignment_class_id = mysqli_fetch_assoc($results);
-		// $assignment_classes_id = $assignment_class_id['classes_id'];
-	}
-	public static function CountStudentsNotSubmitted() {
-		$sql = "SELECT COUNT(1) FROM `student_assignment` WHERE student_assignment_assignment_id = 20 AND student_assignment_date_submitted IS NULL";
-		$results = mysqli_query(ConnectToDb::con(), $sql);
-		while($record = mysqli_fetch_assoc($results))
-		{
-			$allTeacherAssignments[] = $record;
-			// print_r($record);
 		}
 		return $allTeacherAssignments;
 	}
-
+	
 	public static function getAllTeacherCourses () {
 		$teacher_name = $_SESSION['first_name'];
 		$sql = "SELECT * FROM classes WHERE classes_teacher = '$teacher_name'";
@@ -270,7 +255,17 @@ Class Assignments extends Model {
 		while($record = mysqli_fetch_assoc($results))
 		{
 			$allTeacherCourses[] = $record;
-			// print_r($record);
+		}
+		return $allTeacherCourses;
+	}
+	public static function getSingleTeacherCourse () {
+		$class_id = $_GET['class_id'];
+		$teacher_name = $_SESSION['first_name'];
+		$sql = "SELECT * FROM classes WHERE classes_teacher = '$teacher_name' AND classes_id = ";
+		$results = mysqli_query(ConnectToDb::con(), $sql);
+		while($record = mysqli_fetch_assoc($results))
+		{
+			$allTeacherCourses[] = $record;
 		}
 		return $allTeacherCourses;
 	}
@@ -281,7 +276,6 @@ Class Assignments extends Model {
 		while($record = mysqli_fetch_assoc($results))
 		{
 			$currentTeacherCourses[] = $record;
-			// print_r($record['classes_name']);
 		}
 		return $currentTeacherCourses;
 	}
@@ -388,6 +382,7 @@ Class Assignments extends Model {
 				assignment_class_id = $assignment_classes_id WHERE assignment_id = $edit_assignment_id";
 				
 			$result = mysqli_query(ConnectToDb::con(), $sql);
+
 
 			header("Location: index.php?controller=pages&action=viewAllTeacherAssignments&editsuccess=true");
             

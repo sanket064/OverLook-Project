@@ -27,19 +27,12 @@
         {
         ?> 
         <div class="col-sm-12 col-xl-4 background-color">
-            <a class="header-btn" href="index.php?controller=pages&action=createAssignment">
+            <a class="header-btn" href="index.php?controller=pages&action=viewAllTeacherCourses">
                 <h1 class="h1-size-2"><?= $numberOfClasses['COUNT(1)']; ?> </h1>
                 <h2 class="h2-size-1">Courses</h2>
             </a>    
         </div>
         <?php
         }
-        ?>
-       
-        <!-- <div class="col bg-dark text-light">
-        <h1 class="bg-success p-5">Submitted Assignments: <?= $assignment_submitted_count['COUNT(1)']; ?></h1>
+       ?>
         </div>
-        <div class="col bg-dark text-light">
-        <h1 class="bg-danger p-5">Pending Assignments: <?= $assignment_not_submitted_count['COUNT(1)']; ?></h1>
-        </div> -->
-    </div>

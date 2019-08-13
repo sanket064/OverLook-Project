@@ -37,6 +37,7 @@ Class Pages extends Controller {
 				$this->getAllTeacherAssignments = Assignments::viewAllTeacherAssignments();
 				$this->arrTeacherNumberOfAssignments = Assignments::getNumberOfTeacherAssignments();
 				$this->arrTeacherNumberOfClasses = Assignments::getNumberOfTeacherClasses();
+				
 				$this->mainbody .= $this->loadView("teacher_header");
 				$this->arrAssignments = Assignments::getAllTeacherAssignments();
 				$this->mainbody .= $this->loadView("teacher_student_assignment_list");
@@ -64,6 +65,20 @@ Class Pages extends Controller {
 		$this->nav = $this->loadView("header");
 		$this->arrAssignments = Assignments::getAllSubmittedStudentAssignments();
 		$this->mainbody .= $this->loadView("student_submitted");
+
+		include("views/template.php");
+	}
+	public function viewAllTeacherCourses() {
+		$this->nav = $this->loadView("header");
+		$this->arrCourses = Assignments::getAllTeacherCourses();
+		$this->mainbody .= $this->loadView("teacher_view_courses");
+
+		include("views/template.php");
+	}
+	public function editTeacherCourses() {
+		$this->nav = $this->loadView("header");
+		$this->arrCourses = Assignments::getAllTeacherCourses();
+		$this->mainbody .= $this->loadView("teacher_edit_class");
 
 		include("views/template.php");
 	}
