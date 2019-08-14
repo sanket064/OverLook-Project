@@ -111,25 +111,39 @@ Class User extends Controller {
         $db_username = $row['user_name'];
         $db_email = $row['user_email'];
         $db_user_password = $row['user_password'];
-        $db_user_firstname = $row['user_firstname'];
-        $db_user_lastname = $row['user_lastname'];
+        $db_user_firstname = $row['user_first_name'];
+        $db_user_lastname = $row['user_last_name'];
         $db_user_role = $row['user_role'];
 
     }
 
     $password = crypt($password, $db_user_password);
         if($user_name === $db_username && $password === $db_user_password) {
+            
             $_SESSION['user_name'] = $db_username;
             $_SESSION['first_name'] = $db_user_firstname;
             $_SESSION['last_name'] = $db_user_lastname;
             $_SESSION['user_role'] = $db_user_role;
             $_SESSION['user_email'] = $db_email;
+            $_SESSION['user_id'] = $db_id;
+
             header("Location: index.php?controller=pages&action=dashboard");
         }  else {
             header("Location: ../index.php");
         }
     }
 
+    }
+
+    public static function logout(){
+        session_start();
+        $_SESSION['user_name'] = NULL;
+        $_SESSION['first_name'] = NULL;
+        $_SESSION['last_name'] = NULL;
+        $_SESSION['user_role'] = NULL;
+        $_SESSION['user_email'] = NULL;
+        $_SESSION['user_id'] = NULL;
+        header("Location: index.php?controller=pages&action=dashboard&error=true");
     }
 }
 
