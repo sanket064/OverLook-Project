@@ -12,6 +12,7 @@
     <link href="template/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/424978c7c4.js"></script>
     <link rel="stylesheet" href="template/css/main.css">
+    
     <!-- <style>
     #heroImage {}
     </style> -->

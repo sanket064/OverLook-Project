@@ -2,7 +2,7 @@
 
 <h1 class="h2-subhead pt-5 pb-5">Here are your assignments</h1>
 <div class="arrow bounce">
-
+<i class="fas fa-angle-right"></i>
 </div>
 <div class="table-responsive">
 <table class="table table-hover table-dark">
