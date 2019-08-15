@@ -143,7 +143,7 @@ Class User extends Controller {
         $_SESSION['user_role'] = NULL;
         $_SESSION['user_email'] = NULL;
         $_SESSION['user_id'] = NULL;
-        header("Location: index.php?controller=pages&action=dashboard&error=true");
+        header("Location: index.php?controller=pages&action=dashboard&logout=true");
     }
 }
 
