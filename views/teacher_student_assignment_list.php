@@ -5,8 +5,10 @@
         <div class="arrow bounce pb-5">
         <i class="fas fa-angle-right"></i>
 </div>
+        <div class="table-responsive">
+
         
-        <table class="table-responsive table table-hover table-dark">
+        <table class="table table-hover table-dark">
             <thead>
             <tr>
         
@@ -45,18 +47,21 @@
                 <?php
                 }
 
-                if($assignment['student_assignment_comments'] != NULL) {
+                $student_assignment_id = $assignment['student_assignment_id'];
+                if($assignment['student_assignment_comments'] === NULL) {
                     ?>
-                <td class="bg-success"><?= $assignment['student_assignment_comments']; ?></td> 
-
-                <?php
-                } else {
-                ?>
-                <td class="bg-danger">Pending</td> 
-
-                <?php
-
+                     <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
+                    <?php
+                } else if($assignment['student_assignment_marks'] < 50){
+                  ?>
+                   <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
+                  <?php
+                } else if($assignment['student_assignment_marks'] > 50){
+                  ?>
+                   <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
+                  <?php
                 }
+                
                 ?>
 
 
@@ -83,5 +88,30 @@
         }
         echo "</tbody>";
     echo "</table>";
+    echo "</div>";
     }
         ?>
+    <div class="modal fade product_view" id="product_view<?=$assignments['student_assignment_id']?>">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle"><?=$assignments['assignment_name']?></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <?php
+            
+            if($assignments['student_assignment_comments'] === NULL) {
+                echo "<h1 id='comments-popup'>Pending</h1>";
+            } else if($assignments['student_assignment_marks'] < 50){
+                echo "<h1 id='comments-popup'>".$assignments['student_assignment_comments']."</h1>";
+            } else if($assignments['student_assignment_marks'] > 50){
+                echo "<h1 id='comments-popup'>".$assignments['student_assignment_comments']."</h1>";
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
