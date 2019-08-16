@@ -3,10 +3,10 @@
         ?>
         <h2 class="my-5 h2-subhead">Student Assignments</h2>
         <div class="arrow bounce pb-5">
-
+        <i class="fas fa-angle-right"></i>
 </div>
         
-        <table class="table table-hover table-dark">
+        <table class="table-responsive table table-hover table-dark">
             <thead>
             <tr>
         
