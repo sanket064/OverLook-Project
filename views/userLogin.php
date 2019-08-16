@@ -1,19 +1,44 @@
+<?php
+if(isset($_GET['error'])) {
 
-<!-- LOGIN FORM -->
-<div class="container ">
-    <div class=" main_login">
-        <form action="index.php?controller=user&action=login" method="post" >
-            <div class="form-group ">
-                <input placeholder="Enter Username" name="user_name" type="text" class="form-control">
+  if($_GET['error'] == true) {
+    echo "<h1 class='bg-danger p-5 text-light text-center'>Invalid Username or Password. Try Again</h1>'";
+  }
 
-            </div>
-            <!-- /.input-group -->
-            <div class="input-group ">
-                <input placeholder="Enter Password" name="password" type="password" class="form-control">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary" name="login" type="submit">Login</button></span>
-            </div>
-            <!-- /.input-group -->
-        </form> <!-- LOGIN FORM -->
-    </div>
+}
+
+?>
+<section class="login_home">
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+        <div class="card-header">
+				<h3>Sign In</h3>
+			</div>
+			<div class="card-body">
+            <form action="index.php?controller=user&action=login" method="post" >
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input placeholder="Enter Username" name="user_name" type="text" class="form-control">
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-key"></i></span>
+						</div>
+                        <input placeholder="Enter Password" name="password" type="password" class="form-control">
+					</div>
+					<div class="form-group">
+                        <button class="btn float-right login_btn" name="login" type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">	
+			</div>
+		</div>
+	</div>
 </div>
+
+</section>
