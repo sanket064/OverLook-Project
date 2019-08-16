@@ -1,9 +1,18 @@
 <?php
 if(isset($_GET['error'])) {
 
-  if($_GET['error'] == true) {
-    echo "<h1 class='bg-danger p-5 text-light text-center'>Invalid Username or Password. Try Again</h1>'";
-  }
+  if($_GET['error'] = true) {
+    echo "<h1 class='bg-danger p-5 text-light text-center'>Invalid Username or Password. Try Again</h1>";
+	} 
+
+
+}
+if(isset($_GET['logout'])) {
+
+
+	if($_GET['logout'] = true) {
+    echo "<h1 class='bg-warning p-5 text-center'>Logged out</h1>";
+  } 
 
 }
 

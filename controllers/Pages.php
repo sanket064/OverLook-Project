@@ -35,8 +35,13 @@ Class Pages extends Controller {
 				$this->mainbody .= $this->loadView("teacher_student_assignment_list");
 			}
 			include("views/template.php");
+		} else if(isset($_GET['logout'])) {
+			if($_GET['logout'] = true) {
+				header("Location: index.php?logout=true");
+			}
 		} else {
 			header("Location: index.php?error=true");
+			
 		}
 	}
 	
