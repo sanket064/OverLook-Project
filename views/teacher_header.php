@@ -1,4 +1,6 @@
 
+    <h1 class="h2-subhead pb-5 new-padding ">Welcome to the Vanarts <?php echo ($_SESSION['user_role']); ?> Portal, <?php echo ($_SESSION['first_name']); ?></h1>
+
     <div class="row mx-auto">
         
         <div class="col-sm-12 col-xl-4 px-0 background-color">

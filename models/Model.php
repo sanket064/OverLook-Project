@@ -6,3 +6,4 @@ Class Model{
 
 	
 }
+?>

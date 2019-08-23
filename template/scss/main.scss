@@ -15,7 +15,14 @@
 //*****************************
 //  *  Header PAGE STYLE  **
 //*****************************
-
+.bg-danger-overlook {
+  background: $dark-red;
+  color: $light-red;
+}
+.bg-success-overlook {
+  background: $dark-green;
+  color: $light-green;
+}
 body {
   font-family: $font-reg;
   background: linear-gradient(-65deg,   #333333,  #252525, black, #353332 );

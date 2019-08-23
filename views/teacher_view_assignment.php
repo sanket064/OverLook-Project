@@ -2,17 +2,17 @@
 <?php
 if(isset($_GET['success'])){
     if($_GET['success'] == true) {
-       echo "<h1 class='p-5 bg-success'>You have created a new assignment</h1>";
+       echo "<h1 class='p-5 bg-success-overlook'>You have created a new assignment</h1>";
     } 
 }
 if(isset($_GET['editsuccess'])){
   if($_GET['editsuccess'] == true) {
-     echo "<h1 class='mt-5 alert-success'>You have updated the assignment</h1>";
+     echo "<h1 class='mt-5 p-5 bg-success-overlook'>You have updated the assignment</h1>";
   } 
 }
 if(isset($_GET['delete'])){
   if($_GET['delete'] == true) {
-     echo "<h1 class='mt-5 alert-danger'>You have deleted the assignment</h1>";
+     echo "<h1 class='mt-5 p-5 bg-danger-overlook'>You have deleted the assignment</h1>";
   }
 }
 ?>
@@ -76,12 +76,12 @@ if(isset($_GET['delete'])){
         <td><?= $assignments['assignment_description']; ?></td>
         <td><?= $assignment_class_id['classes_name']; ?></td>
         <td><?= $assignments['assignment_date_due']?></td>
-        <td class="bg-success"><?= $assignment_submitted_count['COUNT(1)']; ?></td>
-        <td class="bg-danger"><?= $assignment_not_submitted_count['COUNT(1)']; ?></td>
+        <td class="bg-success-overlook"><?= $assignment_submitted_count['COUNT(1)']; ?></td>
+        <td class="bg-danger-overlook"><?= $assignment_not_submitted_count['COUNT(1)']; ?></td>
         <td><?= $assignments['assignment_term']?></td>
         <td><?= $assignments['assignment_credits']?></td>
-        <td><a href="index.php?controller=pages&action=editAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>&assignment_class_id=<?php echo $assignments['assignment_class_id']; ?>">Edit</a></td>
-        <td><a href="index.php?controller=assignments&action=deleteAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>">Delete</a></td>
+        <td><a class="btn btn-light" href="index.php?controller=pages&action=editAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>&assignment_class_id=<?php echo $assignments['assignment_class_id']; ?>">Edit</a></td>
+        <td><a class="btn btn-light" href="index.php?controller=assignments&action=deleteAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>">Delete</a></td>
         </tr>
         <?php
     }
