@@ -445,6 +445,16 @@ textarea {
   padding: 0.2em 0;
 }
 
+.bg-danger-overlook {
+  background: #38211c;
+  color: #dc5453;
+}
+
+.bg-success-overlook {
+  background: #303631;
+  color: #6bc6ac;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   background: linear-gradient(-65deg, #333333, #252525, black, #353332);

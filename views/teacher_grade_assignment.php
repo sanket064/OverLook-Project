@@ -2,7 +2,7 @@
   <?php
   if(isset($_GET['editsuccess'])){
     if($_GET['editsuccess'] == true) {
-      echo "<h1 class='mt-5 p-5 bg-success'>The assignment has been graded</h1>";
+      echo "<h1 class='mt-5 p-5 bg-success-overlook'>The assignment has been graded</h1>";
    } 
   }
   foreach($this->getStudentAssignment as $student_assignment){
@@ -44,7 +44,7 @@
           <textarea name="student_assignment_comments" type="text" class="form-control" placeholder="What are your thoughts?" required><?= $student_assignment['student_assignment_comments']; ?></textarea>
         </div>
         <div class="col pt-5">
-          <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+          <button class="btn btn-light mb-5" type="submit" name="submit">Submit form</button>
         </div>
       </form>
       <?php

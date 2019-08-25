@@ -33,42 +33,40 @@
         <td><?= $assignments['assignment_date_due']?></td>
         <?php
         if($assignments['student_assignment_date_submitted'] === NULL) {
-            echo "<td class='text-danger'>Not Submitted</td>";
+            echo "<td class='bg-danger-overlook'>Not Submitted</td>";
         } else {
-            echo "<td class='text-success'>Submitted  ".$assignments['student_assignment_date_submitted']."</td>";
+            echo "<td class='bg-success-overlook'>Submitted  ".$assignments['student_assignment_date_submitted']."</td>";
         }
        
          
         if($assignments['student_assignment_marks'] === NULL) {
-            echo "<td class='text-warning'>Pending</td>";
+            echo "<td class='bg-danger-overlook'>Pending</td>";
         } else if($assignments['student_assignment_marks'] < 50){
-            echo "<td class='text-danger'>".$assignments['student_assignment_marks']."&#37</td>";
+            echo "<td class='bg-danger-overlook'>".$assignments['student_assignment_marks']."&#37</td>";
         } else if($assignments['student_assignment_marks'] > 50){
-            echo "<td class='text-success'>".$assignments['student_assignment_marks']."&#37</td>";
+            echo "<td class='bg-success-overlook'>".$assignments['student_assignment_marks']."&#37</td>";
         }
      
         $student_assignment_id = $assignments['student_assignment_id'];
-        if($assignments['student_assignment_comments'] === NULL) {
-            ?>
-             <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
-            <?php
-        } else if($assignments['student_assignment_marks'] < 50){
+        if($assignments['student_assignment_comments'] != NULL) {
           ?>
-           <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
-          <?php
-        } else if($assignments['student_assignment_marks'] > 50){
-          ?>
-           <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#product_view<?=$assignments['student_assignment_id']?>"><i class="fa fa-search"></i></button></td>
-          <?php
-        }
-        ?>
+      <td class="bg-success-overlook"><?= $assignments['student_assignment_comments']; ?></td> 
+
+      <?php
+      } else {
+      ?>
+      <td class="bg-danger-overlook">Pending</td> 
+
+      <?php
+      }
+      ?>
        
        
     
         <td><?= $assignments['assignment_term']?></td>
         <td><?= $assignments['assignment_credits']?></td>
 
-        <td><a href="index.php?controller=pages&action=studentSubmitAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>&student_assignment_id=<?php echo $assignments['student_assignment_id']; ?>">Submit</a></td>
+        <td><a class="btn btn-light" href="index.php?controller=pages&action=studentSubmitAssignment&assignment_id=<?php echo $assignments['assignment_id']; ?>&student_assignment_id=<?php echo $assignments['student_assignment_id']; ?>">Submit</a></td>
         </tr>
     </div>
     <div class="modal fade product_view" id="product_view<?=$assignments['student_assignment_id']?>">

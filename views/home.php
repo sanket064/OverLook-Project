@@ -2,7 +2,7 @@
 $page_title = "Welcome to my home page";
 if(isset($_GET['submission'])){
     if($_GET['submission'] == true) {
-       echo "<h1 class='p-5 bg-success'>You have submitted your assignment</h1>";
+       echo "<h1 class='p-5 bg-success-overlook'>You have submitted your assignment</h1>";
     } 
 }
 ?>

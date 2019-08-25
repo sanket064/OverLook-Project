@@ -31,7 +31,7 @@ Class Assignments extends Model {
 		while($record = mysqli_fetch_assoc($results))
 		{
 			$arrAssignments[] = $record;
-			//print_r($record);
+			// print_r($record);
 		}
 		return $arrAssignments;
 	}
@@ -205,7 +205,7 @@ Class Assignments extends Model {
 	while($record = mysqli_fetch_assoc($results))
 	{
 		$arrAssignments[] = $record;
-		//print_r($record);
+		// print_r($record);
 	}
 	return $arrAssignments;
         
@@ -372,7 +372,7 @@ Class Assignments extends Model {
 			$assignment_class_id = mysqli_fetch_assoc($results);
 			$assignment_classes_id = $assignment_class_id['classes_id'];
 		
-			echo $sql = "UPDATE assignments 
+			$sql = "UPDATE assignments 
 				SET
 				assignment_name = '$assignment_name', 
 				assignment_description = '$assignment_description', 
@@ -383,8 +383,7 @@ Class Assignments extends Model {
 				assignment_class_id = $assignment_classes_id WHERE assignment_id = $edit_assignment_id";
 				
 			$result = mysqli_query(ConnectToDb::con(), $sql);
-
-
+		
 			header("Location: index.php?controller=pages&action=viewAllTeacherAssignments&editsuccess=true");
             
         }

@@ -28,7 +28,7 @@
             <div class="input-group ">
                 <input placeholder="Enter Password" name="password" type="password" class="form-control">
                 <span class="input-group-btn">
-                    <button class="btn btn-primary" name="submit" type="submit">Register</button></span>
+                    <button class="btn btn-light" name="submit" type="submit">Register</button></span>
             </div>
             <!-- /.input-group -->
         </form> <!-- LOGIN FORM -->

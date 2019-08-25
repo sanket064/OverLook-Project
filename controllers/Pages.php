@@ -183,10 +183,6 @@ Class Pages extends Controller {
 		include("views/template.php");
 	}
 
-	public function search() {
-
-		$this->mainbody .= $this->loadView("search");
-	}
 
 
 

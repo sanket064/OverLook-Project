@@ -94,7 +94,7 @@ foreach($this->editCourse as $edit_assignment)
       
         <div class="col pt-5">
       
-      <button class="btn btn-primary" type="submit" name="submit">Submit form</button>
+      <button class="btn btn-light" type="submit" name="submit">Submit form</button>
         </div>
     </form>
   </div>
